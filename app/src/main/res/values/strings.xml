@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">ProjectNEW</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="HomeReturn">Go back</string>
+    <string name="typeRec">Type the recipe here</string>
+    <string name="add">add</string>
+    <string name="clear">clear all</string>
+    <string name="recipeIcon">Recipe search</string>
+    <string name="RecipeInfo">Recipe Information</string>
+    <string name="AddRecipeToFav">Add to favorite:</string>
+    <string name="musicIcon">Songster</string>
+    <string name="musicToast">Going to songster page</string>
+    <string name="albumInfo">List of Songs</string>
+    <string name="saveAlbumButton">Add to Favorites</string>
+    <string name="deleteFromFavButton">Delete from Favorites</string>
+    <string name="musicApplicationTitle">Songster</string>
+    <string name="musicApplicationAuthor" translatable="false">Evgenii Filatov</string>
+    <string name="musicVersionNumber" translatable="false">1.0</string>
+    <string name="textChoseArtist">Type the artist name to search</string>
+    <string name="artistSearchBatton">Search</string>
+    <string name="listOfSongs">List of Songs</string>
+    <string name="dialogMessage1">Add to Favourite?</string>
+    <string name="dialogMessage2">song</string>
+    <string name="dialogYes">Yes</string>
+    <string name="dialogNo">No</string>
+    <string name="search">Search</string>
+    <string name="savedAlbumsHeader">The list of the saved albums</string>
+
+    <string name="searchToast">search toast</string>
+    <string name="artist_name">Artist Name</string>
+    <string name="favorites">Favorite songs</string>
+</resources>
