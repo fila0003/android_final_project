@@ -41,7 +41,6 @@ import java.util.ArrayList;
 // contains fragment for tablet
 public class ArtistSearchResults extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ArrayList<Song> songs = new ArrayList<>();
-    Album a = new Album();
     public static final String ALBUM_SELECTED = "ALBUM";
     public static final String ARTIST = "ARTIST";
     public static final String UNIQUEID_SELECTED = "UNIQUEID";
