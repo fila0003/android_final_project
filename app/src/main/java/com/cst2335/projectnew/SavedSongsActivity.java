@@ -58,7 +58,7 @@ public class SavedSongsActivity extends AppCompatActivity implements NavigationV
             Song song = songs.get(pos);
 
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-            alertDialogBuilder.setTitle("Do you want to delete?")
+            alertDialogBuilder.setTitle(R.string.deleteFromFavButton)
                     .setMessage("Remove the song " + song.getName() + " from Favorites?")
                     .setPositiveButton("Yes", (click, arg) -> {
                         // delete from database

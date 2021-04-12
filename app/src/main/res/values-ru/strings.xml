@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProjectNEW</string>
+    <string name="open">открыто</string>
+    <string name="close">закрыто</string>
+    <string name="HomeReturn">назад</string>
+    <string name="add">добавить</string>
+    <string name="clear">почистить</string>
+    <string name="musicIcon">Горлодер</string>
+    <string name="musicToast">Пойдем попоем</string>
+    <string name="albumInfo">Песня</string>
+    <string name="saveAlbumButton">Сохранить</string>
+    <string name="deleteFromFavButton">Надоело?</string>
+    <string name="musicApplicationTitle">Певец</string>
+    <string name="textChoseArtist">Печатать тут</string>
+    <string name="artistSearchButton">Поиск</string>
+    <string name="listOfSongs">Список песен</string>
+    <string name="dialogMessage1">Еще будешь слушать?</string>
+    <string name="dialogMessage2">песня</string>
+    <string name="dialogYes">Да</string>
+    <string name="dialogNo">Нет</string>
+    <string name="search">Поиск</string>
+    <string name="savedAlbumsHeader">Список</string>
+    <string name="searchToast">в поисках тоста</string>
+    <string name="artist_name">Имя артиста</string>
+    <string name="favorites">Любимые песни</string>
+</resources>
