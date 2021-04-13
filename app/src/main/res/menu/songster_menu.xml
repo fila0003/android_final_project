@@ -13,9 +13,9 @@
     <item android:id="@+id/searchItemMusic"
         android:orderInCategory="50"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
-        android:icon="@android:drawable/ic_search_category_default"
+        android:icon="@drawable/song"
         app:showAsAction="always|collapseActionView"
-        android:title="@string/search"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
+        android:title="@string/search1"/>    <!-- This uses showAsAction=always, so look at icon= parameter -->
 
     <item android:id="@+id/favoriteSongs"
         android:orderInCategory="150"

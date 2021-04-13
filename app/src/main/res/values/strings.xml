@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjectNEW</string>
+    <string name="app_name">Final Project</string>
     <string name="open">open</string>
     <string name="close">close</string>
     <string name="HomeReturn">Go back</string>
@@ -26,4 +26,5 @@
     <string name="searchToast">search toast</string>
     <string name="artist_name">Artist Name</string>
     <string name="favorites">Favorite songs</string>
+    <string name="search1">Songster</string>
 </resources>

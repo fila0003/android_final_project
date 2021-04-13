@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ProjectNEW</string>
+    <string name="app_name">проект</string>
     <string name="open">открыто</string>
     <string name="close">закрыто</string>
     <string name="HomeReturn">назад</string>
@@ -24,4 +24,5 @@
     <string name="searchToast">в поисках тоста</string>
     <string name="artist_name">Имя артиста</string>
     <string name="favorites">Любимые песни</string>
+    <string name="search1">певец</string>
 </resources>
