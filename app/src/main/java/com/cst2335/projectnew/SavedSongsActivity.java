@@ -105,7 +105,7 @@ public class SavedSongsActivity extends AppCompatActivity implements NavigationV
             //what to do when the menu item is selected:
             case R.id.homeReturnMusic:
                 message = getResources().getString(R.string.HomeReturn);// this line will make toast messqage translatable
-                Intent goToMainPage = new Intent(this, MainActivity.class);
+                Intent goToMainPage = new Intent(this, SuperMainActivity.class);
                 startActivity(goToMainPage);
                 break;
             case R.id.searchItemMusic:
@@ -124,7 +124,7 @@ public class SavedSongsActivity extends AppCompatActivity implements NavigationV
             case R.id.homeReturnMusic:
                 message = getResources().getString(R.string.HomeReturn);
                 ;
-                Intent goToMainPage = new Intent(this, MainActivity.class);
+                Intent goToMainPage = new Intent(this, SuperMainActivity.class);
                 startActivity(goToMainPage);
                 break;
             case R.id.searchItemMusic:

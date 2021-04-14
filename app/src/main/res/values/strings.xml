@@ -28,4 +28,9 @@
     <string name="favorites">Favorite songs</string>
     <string name="search1">SEARCH</string>
     <string name="songster">songster</string>
+    <!--<string name="app_name">Car Database</string>-->
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cars">cars</string>
+
 </resources>

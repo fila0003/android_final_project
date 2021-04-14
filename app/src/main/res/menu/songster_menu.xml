@@ -28,4 +28,10 @@
         android:icon="@drawable/song"
         app:showAsAction="always|collapseActionView"
         android:title="@string/songster"/>
+
+    <item android:id="@+id/cars"
+        android:orderInCategory="125"
+        android:icon="@android:drawable/btn_star_big_on"
+        app:showAsAction="always|collapseActionView"
+        android:title="@string/cars"/>
 </menu>

@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/textChoseArtist"
-                 />
+                />
 
             <EditText
                 android:layout_width="200dp"
@@ -35,7 +35,7 @@
                 android:id="@+id/artistSearch"
                 android:inputType="text"
                 android:hint = "Type artist name here"
-            />
+                />
 
             <Button
                 android:layout_width="wrap_content"

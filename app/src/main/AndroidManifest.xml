@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectNew">
+        <activity android:name=".LocalStorageCarsActivity"></activity>
+        <activity android:name=".CarsActivity" />
+        <activity android:name=".MainActivity"/>
         <activity android:name=".SavedSongsActivity"/>
         <activity android:name=".SongsActivity" />
         <activity android:name=".ArtistSearchResults" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".SuperMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
