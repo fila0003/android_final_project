@@ -26,5 +26,6 @@
     <string name="searchToast">search toast</string>
     <string name="artist_name">Artist Name</string>
     <string name="favorites">Favorite songs</string>
-    <string name="search1">Songster</string>
+    <string name="search1">SEARCH</string>
+    <string name="songster">songster</string>
 </resources>

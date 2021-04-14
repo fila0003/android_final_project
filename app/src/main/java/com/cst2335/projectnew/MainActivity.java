@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.songster_menu, menu);
-        // slide 15 material:
+
         MenuItem searchItem = menu.findItem(R.id.searchItemMusic);
         SearchView sView = (SearchView) searchItem.getActionView();
         sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -106,6 +106,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.searchItemMusic:
                 message = getResources().getString(R.string.searchToast); // this line will make toast messqage translatable
                 break;
+            case R.id.songster:
+                message = "Songster";
+                startActivity(new Intent(this, MainActivity.class));
+                break;
             case R.id.favoriteSongs:
                 message = "Favorite songs";
                 startActivity(new Intent(this, SavedSongsActivity.class));
@@ -128,6 +132,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.searchItemMusic:
                 message = "@string/searchToast";
+                break;
+            case R.id.songster:
+                message = "Songster";
+                startActivity(new Intent(this, MainActivity.class));
                 break;
             case R.id.favoriteSongs:
                 message = "Favorite songs";

@@ -24,5 +24,6 @@
     <string name="searchToast">в поисках тоста</string>
     <string name="artist_name">Имя артиста</string>
     <string name="favorites">Любимые песни</string>
-    <string name="search1">певец</string>
+    <string name="search1">Поиск</string>
+    <string name="songster">Горлодер</string>
 </resources>
