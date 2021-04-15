@@ -1,12 +1,5 @@
 package com.cst2335.projectnew;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +11,13 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -112,8 +112,9 @@ public class SuperMainActivity extends AppCompatActivity implements NavigationVi
                 break;
             case R.id.cars:
                 message = "Cars";
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, CarsMainActivity.class));
                 break;
+
             case R.id.favoriteSongs:
                 message = "Favorite songs";
                 startActivity(new Intent(this, SavedSongsActivity.class));
@@ -143,8 +144,9 @@ public class SuperMainActivity extends AppCompatActivity implements NavigationVi
                 break;
             case R.id.cars:
                 message = "Cars";
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, CarsMainActivity.class));
                 break;
+
             case R.id.favoriteSongs:
                 message = "Favorite songs";
                 startActivity(new Intent(this, SavedSongsActivity.class));

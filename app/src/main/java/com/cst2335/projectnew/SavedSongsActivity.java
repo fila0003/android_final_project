@@ -62,7 +62,7 @@ public class SavedSongsActivity extends AppCompatActivity implements NavigationV
                     .setMessage("Remove the song " + song.getName() + " from Favorites?")
                     .setPositiveButton("Yes", (click, arg) -> {
                         // delete from database
-                        db.delete(MyDBOpener.TABLE_NAME, MyDBOpener.COL_ID + "= ?", new String[]{Long.toString(song.getId())});
+                        db.delete(SongMyDBOpener.TABLE_NAME, SongMyDBOpener.COL_ID + "= ?", new String[]{Long.toString(song.getId())});
                         // db.execSQL("delete from " + TABLE_NAME + " where _id='"+ elements.get(pos).getId()+previouseState+ "'");
 
                         myAdapter.notifyDataSetChanged();
@@ -144,14 +144,14 @@ public class SavedSongsActivity extends AppCompatActivity implements NavigationV
     }
 
     private void loadDataFromDatabase(){
-        MyDBOpener dbOpener = new MyDBOpener(this );
+        SongMyDBOpener dbOpener = new SongMyDBOpener(this );
         db  = dbOpener.getWritableDatabase();
-        String [] columns = {MyDBOpener.COL_ID, MyDBOpener.COL_NAME, MyDBOpener.COL_ARTIST_ID, MyDBOpener.COL_ARTIST_NAME};
-        Cursor results = db.query(false, MyDBOpener.TABLE_NAME, columns, null, null,null, null, null, null);
-        int idColIndex = results.getColumnIndex(MyDBOpener.COL_ID);
-        int nameColIndex = results.getColumnIndex(MyDBOpener.COL_NAME);
-        int artistIdColIndex = results.getColumnIndex(MyDBOpener.COL_ARTIST_ID);
-        int artistNameColIndex = results.getColumnIndex(MyDBOpener.COL_ARTIST_NAME);
+        String [] columns = {SongMyDBOpener.COL_ID, SongMyDBOpener.COL_NAME, SongMyDBOpener.COL_ARTIST_ID, SongMyDBOpener.COL_ARTIST_NAME};
+        Cursor results = db.query(false, SongMyDBOpener.TABLE_NAME, columns, null, null,null, null, null, null);
+        int idColIndex = results.getColumnIndex(SongMyDBOpener.COL_ID);
+        int nameColIndex = results.getColumnIndex(SongMyDBOpener.COL_NAME);
+        int artistIdColIndex = results.getColumnIndex(SongMyDBOpener.COL_ARTIST_ID);
+        int artistNameColIndex = results.getColumnIndex(SongMyDBOpener.COL_ARTIST_NAME);
         //iterate over the results, return true if there is a next item:
         while(results.moveToNext())
         {

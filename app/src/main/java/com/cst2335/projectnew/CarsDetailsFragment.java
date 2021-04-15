@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +12,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import java.util.Objects;
 
 import static android.widget.Toast.LENGTH_LONG;
 
 
-public class DetailsFragment extends Fragment {
+public class CarsDetailsFragment extends Fragment {
 
     TextView make, model;
     Button save, details, buy;
@@ -30,7 +29,7 @@ public class DetailsFragment extends Fragment {
 
     public static Car CAR;
 
-    public DetailsFragment() {
+    public CarsDetailsFragment() {
         // Required empty public constructor
     }
 

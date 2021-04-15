@@ -45,7 +45,7 @@ public class SongsDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        MyDBOpener dbOpener = new MyDBOpener( getActivity() );
+        SongMyDBOpener dbOpener = new SongMyDBOpener( getActivity() );
         SQLiteDatabase db  = dbOpener.getWritableDatabase();
 
         dataFromPreviousActivity = getArguments();
@@ -87,11 +87,11 @@ public class SongsDetailsFragment extends Fragment {
             alertDialogBuilder.setTitle(R.string.dialogMessage1)
                     .setMessage(getString(R.string.dialogMessage2) + " "+ song.getName() + " by " + song.getArtist().getName() )
                     .setPositiveButton(R.string.dialogYes, (cl, arg) -> {
-                                newRowValues.put(MyDBOpener.COL_ID, song.getId());
-                                newRowValues.put(MyDBOpener.COL_NAME, song.getName());
-                                newRowValues.put(MyDBOpener.COL_ARTIST_ID, song.getArtist().getId());
-                                newRowValues.put(MyDBOpener.COL_ARTIST_NAME, song.getArtist().getName());
-                                db.insert(MyDBOpener.TABLE_NAME, null, newRowValues);
+                                newRowValues.put(SongMyDBOpener.COL_ID, song.getId());
+                                newRowValues.put(SongMyDBOpener.COL_NAME, song.getName());
+                                newRowValues.put(SongMyDBOpener.COL_ARTIST_ID, song.getArtist().getId());
+                                newRowValues.put(SongMyDBOpener.COL_ARTIST_NAME, song.getArtist().getName());
+                                db.insert(SongMyDBOpener.TABLE_NAME, null, newRowValues);
                                 savedAlbumsIntent.putExtra("justSaved", song.getName() );
                         startActivity(savedAlbumsIntent);
 

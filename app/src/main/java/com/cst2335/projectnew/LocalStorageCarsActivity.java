@@ -1,8 +1,5 @@
 package com.cst2335.projectnew;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -13,6 +10,9 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,9 +42,9 @@ public class LocalStorageCarsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                DetailsFragment.CAR = carList.get(position);
+                CarsDetailsFragment.CAR = carList.get(position);
 
-                Fragment fragment = new DetailsFragment();
+                Fragment fragment = new CarsDetailsFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, fragment).commit();
 
             }

@@ -1,7 +1,5 @@
 package com.cst2335.projectnew;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -9,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class CarsMainActivity extends AppCompatActivity {
 
     EditText etSearch;
     Button btnSearch, btnLoadFromDatabase;
@@ -17,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.car_activity_main);
 
         etSearch = findViewById(R.id.etSearch);
         btnSearch = findViewById(R.id.btnSearch);
         btnLoadFromDatabase = findViewById(R.id.btnLoadFromDatabase);
 
-        String lastSearch = PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getString("SEARCH", "");
+        String lastSearch = PreferenceManager.getDefaultSharedPreferences(CarsMainActivity.this).getString("SEARCH", "");
 
 
         etSearch.setText(lastSearch);
@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (!search.isEmpty())
                 {
-                    PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit().putString("SEARCH", search).apply();
+                    PreferenceManager.getDefaultSharedPreferences(CarsMainActivity.this).edit().putString("SEARCH", search).apply();
 
-                    DetailsFragment.flag = 0;
-                    Intent intent = new Intent(MainActivity.this, CarsActivity.class);
+                    CarsDetailsFragment.flag = 0;
+                    Intent intent = new Intent(CarsMainActivity.this, CarsActivity.class);
                     intent.putExtra("searchString", search);
                     startActivity(intent);
                 }
@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DetailsFragment.flag = 1;
-                Intent intent = new Intent(MainActivity.this, LocalStorageCarsActivity.class);
+                CarsDetailsFragment.flag = 1;
+                Intent intent = new Intent(CarsMainActivity.this, LocalStorageCarsActivity.class);
                 startActivity(intent);
 
             }

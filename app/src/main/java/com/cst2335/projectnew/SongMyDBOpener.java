@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class MyDBOpener extends SQLiteOpenHelper {
+public class SongMyDBOpener extends SQLiteOpenHelper {
 
     protected final static String DATABASE_NAME = "AlbumDB";
     protected final static int VERSION_NUM = 3;
@@ -14,7 +14,7 @@ public class MyDBOpener extends SQLiteOpenHelper {
     public final static String COL_ARTIST_ID = "artist_id";
     public final static String COL_ARTIST_NAME = "artist_name";
 
-    public MyDBOpener(Context ctx) {
+    public SongMyDBOpener(Context ctx) {
         super( ctx, DATABASE_NAME, null, VERSION_NUM);
     }
 
