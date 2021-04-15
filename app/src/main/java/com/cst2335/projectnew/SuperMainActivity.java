@@ -19,8 +19,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.cst2335.finalassignmenttrivia.MainActivity;
-import com.cst2335.finalassignmenttrivia.StartActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class SuperMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

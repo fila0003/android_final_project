@@ -1,9 +1,8 @@
-package com.cst2335.finalassignmenttrivia;
+package com.cst2335.projectnew;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.view.View;
@@ -12,13 +11,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cst2335.projectnew.R;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import javax.security.auth.callback.Callback;
 
 import retrofit2.Call;
 import retrofit2.Response;

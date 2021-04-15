@@ -1,4 +1,4 @@
-package com.cst2335.finalassignmenttrivia;
+package com.cst2335.projectnew;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.scalars.ScalarsConverterFactory;

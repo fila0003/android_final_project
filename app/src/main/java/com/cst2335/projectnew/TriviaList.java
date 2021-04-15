@@ -1,10 +1,8 @@
-package com.cst2335.finalassignmenttrivia;
+package com.cst2335.projectnew;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class TriviaList {

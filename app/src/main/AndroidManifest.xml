@@ -15,7 +15,7 @@
         <activity android:name=".SavedSongsActivity"/>
         <activity android:name=".SongsActivity" />
         <activity android:name=".ArtistSearchResults" />
-
+        <activity android:name=".StartActivity" />
         <activity android:name=".SuperMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

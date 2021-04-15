@@ -1,4 +1,4 @@
-package com.cst2335.finalassignmenttrivia;
+package com.cst2335.projectnew;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -24,7 +24,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cst2335.projectnew.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
@@ -38,8 +37,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
@@ -85,8 +82,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             trivia.execute("https://opentdb.com/api.php?amount="+amount.getText()+"&difficulty="+difficulty.getText()+"&type="+type.getText()+"");
         });
 
-        Intent goToQuestions = new Intent(this, TriviaQuery.class);
-        startActivity(goToQuestions);
+
     }
     private class TriviaArrayList extends BaseAdapter {
 

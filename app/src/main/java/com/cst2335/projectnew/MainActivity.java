@@ -1,4 +1,4 @@
-package com.cst2335.finalassignmenttrivia;
+package com.cst2335.projectnew;
 
 
 import android.content.Intent;
@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.cst2335.projectnew.R;
 
 public class MainActivity extends AppCompatActivity {
 
