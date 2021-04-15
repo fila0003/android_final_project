@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -37,6 +38,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
@@ -81,6 +83,18 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
             TriviaQuery trivia = new TriviaQuery();
             trivia.execute("https://opentdb.com/api.php?amount="+amount.getText()+"&difficulty="+difficulty.getText()+"&type="+type.getText()+"");
         });
+
+        ListView highScore = findViewById(R.id.highScores);
+        List<String> arrayList = new ArrayList<String>();
+        arrayList.add("Highscore1");
+        arrayList.add("Highscore2");
+        arrayList.add("Highscore3");
+        arrayList.add("Highscore4");
+        arrayList.add("Highscore5");
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_list_item_1,arrayList);
+        highScore.setAdapter(arrayAdapter);
 
 
     }
