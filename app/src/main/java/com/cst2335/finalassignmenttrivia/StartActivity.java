@@ -1,16 +1,20 @@
 package com.cst2335.finalassignmenttrivia;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -20,19 +24,26 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.cst2335.projectnew.R;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class StartActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private ArrayList<Question> questionArray = new ArrayList<>();;
     private ProgressBar loader;
     private Global global;
     private LinearLayout buttonLayout;
@@ -40,48 +51,144 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
     private ListView listView;
     private SharedPreferences sharedPreferences;
     private Dialog dialog;
+    TriviaArrayList arrayAdapter = new TriviaArrayList();
+    ArrayList<String> arrayList;
+    Button continueBtn, credit, directions;
+    EditText amount, difficulty, type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
+
+        credit = findViewById(R.id.credits);
+        credit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(StartActivity.this, "Made By: Marko", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         sharedPreferences = getSharedPreferences(Config.PREFERENCES, MODE_PRIVATE);
         global = Global.getInstance(getApplication());
         global.reset();
         getView();
 
-        listView = (ListView)findViewById(R.id.listView);
+        amount = findViewById(R.id.etAmount);
+        difficulty = findViewById(R.id.etDif);
+        type = findViewById(R.id.etType);
 
-        ArrayList<String> arrayList = new ArrayList<>();
+        continueBtn = findViewById(R.id.continueBtn);
+        continueBtn.setOnClickListener(v -> {
+            TriviaQuery trivia = new TriviaQuery();
+            trivia.execute("https://opentdb.com/api.php?amount="+amount.getText()+"&difficulty="+difficulty.getText()+"&type="+type.getText()+"");
+        });
 
-        arrayList.add("General Knowledge");
-        arrayList.add("Movies");
-        arrayList.add("Celebrities");
-        arrayList.add("Books");
-        arrayList.add("Music");
-        arrayList.add("TV");
-        arrayList.add("Art");
-        arrayList.add("Video Games");
-        arrayList.add("Board Games");
-        arrayList.add("Computers");
-        arrayList.add("Gadgets");
-        arrayList.add("Math");
-        arrayList.add("Nature");
-        arrayList.add("Animals");
-        arrayList.add("Greek");
-        arrayList.add("History");
-        arrayList.add("Politics");
-        arrayList.add("Geography");
-        arrayList.add("Vehicles");
-        arrayList.add("Sports");
-        arrayList.add("Comics");
-        arrayList.add("Anime");
-        arrayList.add("Cartoons");
+        Intent goToQuestions = new Intent(this, TriviaQuery.class);
+        startActivity(goToQuestions);
+    }
+    private class TriviaArrayList extends BaseAdapter {
 
-        ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
-        listView.setAdapter(arrayAdapter);
 
+        @Override
+        public int getCount() {
+            return  arrayList.size();
+        }
+
+        @Override
+        public Object getItem(int i) {
+            return arrayList.get(i);
+        }
+
+        @Override
+        public long getItemId(int i) {
+            return i;
+        }
+
+
+        @Override
+        public View getView(int i, View old, ViewGroup parent)
+        {
+            LayoutInflater inflater = getLayoutInflater();
+            View newView = inflater.inflate(R.layout.trivia_list, parent, false);
+            TextView textview = newView.findViewById(R.id.triviaTitle);
+            String thisTrivia = (String) getItem(i);
+            textview.setText(thisTrivia);
+            return newView;
+
+        }
+    }
+
+    private class TriviaQuery extends AsyncTask<String, Integer, String> {
+
+        Context context = getApplicationContext();
+        CharSequence text = "";
+        int duration = Toast.LENGTH_SHORT;
+        public String catagory;
+        public String question;
+        public String CA;
+        public ArrayList<String> IC;
+        CheckBox correct;
+        CheckBox incorrect1;
+        CheckBox incorrect2;
+        CheckBox incorrect3;
+        @Override
+        protected String doInBackground(String... args) {
+            try {
+                URL url = new URL(args[0]);
+                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                InputStream response = urlConnection.getInputStream();
+
+                BufferedReader reader = new BufferedReader(new InputStreamReader(response, "UTF-8"), 8);
+                StringBuilder sb = new StringBuilder();
+                String line = "";
+
+                while ((line = reader.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+
+                String TriviaWholeJSON = sb.toString();
+
+                JSONObject object = new JSONObject(TriviaWholeJSON);
+
+                setProgress(0);
+
+                JSONArray jsonArray = object.getJSONArray("results");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject JO = (JSONObject) jsonArray.get(i);
+                    catagory = JO.getString("category");
+                    question = JO.getString("question");
+                    CA = JO.getString("correct_answer");
+
+                    JSONArray incorrectAwnsers = JO.getJSONArray("incorrect_answers");
+                    for(int f = 0; f < incorrectAwnsers.length(); f++) {
+                        JSONObject JOI = (JSONObject) incorrectAwnsers.get(f);
+                        IC.add(JOI.getString("incorrect_answers"));
+                    }
+                    questionArray.add(new Question(catagory, question, CA, IC));
+                }
+
+            } catch (FileNotFoundException e){
+                e.printStackTrace();
+            }catch (JSONException e){
+                e.printStackTrace();
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+            return "Done";
+        }
+
+        //Updates the progress bar
+        public void onProgressUpdate(Integer... value) {
+
+        }
+
+        //Updates listView with found results and shows a toast button
+        public void onPostExecute(String fromDoInBackground) {
+
+            Log.i("HTTP", fromDoInBackground);
+        }
     }
 
     public void displayAlert(View v){
@@ -110,9 +217,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         alert.create().show();
     }
 
-    public void displayToast(View v) {
-        Toast.makeText(this, "Made By: Marko", Toast.LENGTH_SHORT).show();
-    }
 
     private void getView(){
         loader = findViewById(R.id.loader);
@@ -135,44 +239,8 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
-    private void getCurrentList(final View v){
-        final TextView textView = (TextView) v;
-        loader.setVisibility(View.VISIBLE);
 
-        String[] random = {"easy", "medium", "hard"};
-        int pos = new Random().nextInt(3);
 
-        global.getApiService().getQuestion("5", global.getChosenCategory(), random[pos], "multiple").enqueue(new Callback<TriviaList>() {
-            @Override
-            public void onResponse(Call<TriviaList> call, Response<TriviaList> response) {
-                if(response.isSuccessful()){
-                    TriviaList list = response.body();
-                    List<Trivia> TList = list.getResults();
-
-                    if(list.getResults().isEmpty()){
-                        getCurrentList(v);
-                    }else{
-                        global.currentList.clear();
-                        global.currentList.addAll(TList);
-                        global.loadNextList();
-                        Intent intent = new Intent(StartActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }else{
-                    Toast.makeText(StartActivity.this, "Network Timeout", Toast.LENGTH_LONG).show();
-                }
-                loader.setVisibility(View.INVISIBLE);
-            }
-
-            @Override
-            public void onFailure(Call<TriviaList> call, Throwable t) {
-                Toast.makeText(StartActivity.this, "Network Timeout", Toast.LENGTH_LONG).show();
-                loader.setVisibility(View.INVISIBLE);
-                enableAll(true);
-            }
-        });
-    }
 
     @Override
     public void onClick(View view) {
@@ -258,7 +326,6 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
         if(global.networkAvailable()){
             enableAll(false);
-            getCurrentList(view);
         }else{
             Toast.makeText(this, "Network Timeout", Toast.LENGTH_SHORT).show();
         }

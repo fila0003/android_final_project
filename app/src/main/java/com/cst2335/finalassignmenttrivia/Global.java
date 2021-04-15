@@ -12,6 +12,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cst2335.projectnew.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

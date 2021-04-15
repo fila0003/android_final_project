@@ -19,6 +19,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.cst2335.finalassignmenttrivia.MainActivity;
+import com.cst2335.finalassignmenttrivia.StartActivity;
 import com.google.android.material.navigation.NavigationView;
 
 public class SuperMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -119,6 +121,10 @@ public class SuperMainActivity extends AppCompatActivity implements NavigationVi
                 message = "Favorite songs";
                 startActivity(new Intent(this, SavedSongsActivity.class));
                 break;
+            case R.id.triviaButton:
+                message = "Trivia";
+                startActivity(new Intent(this, StartActivity.class));
+                break;
         }
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
         return true;
@@ -150,6 +156,11 @@ public class SuperMainActivity extends AppCompatActivity implements NavigationVi
             case R.id.favoriteSongs:
                 message = "Favorite songs";
                 startActivity(new Intent(this, SavedSongsActivity.class));
+                break;
+
+            case R.id.triviaButton:
+                message = "Trivia";
+                startActivity(new Intent(this, StartActivity.class));
                 break;
         }
 

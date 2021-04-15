@@ -35,5 +35,12 @@
         app:showAsAction="always|collapseActionView"
         android:title="@string/cars"/>
 
+    <item android:id="@+id/triviaButton"
+        android:orderInCategory="125"
+        android:icon="@drawable/quiz"
+        app:showAsAction="always|collapseActionView"
+        android:title="@string/trivia"/>
+
+
 
 </menu>

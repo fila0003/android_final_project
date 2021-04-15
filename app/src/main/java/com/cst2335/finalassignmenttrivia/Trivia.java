@@ -1,60 +1,19 @@
 package com.cst2335.finalassignmenttrivia;
 
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import android.os.Bundle;
 
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class Trivia {
+import com.cst2335.projectnew.R;
 
-    @SerializedName("Category")
-    @Expose
-    private String category;
+public class Trivia extends AppCompatActivity {
 
-    @SerializedName("questionType")
-    @Expose
-    private String questionType;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_trivia);
 
-    @SerializedName("difficulty")
-    @Expose
-    private String difficulty;
 
-    @SerializedName("question")
-    @Expose
-    private String question;
 
-    @SerializedName("correctAnswer")
-    @Expose
-    private String correctAnswer;
-
-    @SerializedName("incorrectAnswer")
-    @Expose
-    private List<String> incorrectAnswer = null;
-
-    public String getCategory(){
-        return category;
     }
-
-    public String getQuestionType(){
-        return questionType;
-    }
-
-    public String getDifficulty(){
-        return difficulty;
-    }
-
-    public String getQuestion(){
-        return question;
-    }
-
-    public String getCorrectAnswer(){
-        return correctAnswer;
-    }
-
-    public List<String> getIncorrectAnswer(){
-        return incorrectAnswer;
-    }
-
-
-
 }

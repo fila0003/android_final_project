@@ -51,19 +51,38 @@
         android:weightSum="7">
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/etAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/enterName"
+            android:text="@string/enterAmount"
             android:layout_marginLeft="250px" />
 
-        <ListView
-            android:id="@+id/listView"
+        <EditText
+            android:id="@+id/etDif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/enterDif"
+            android:layout_marginLeft="250px" />
+
+        <EditText
+            android:id="@+id/etType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/enterType"
+            android:layout_marginLeft="250px" />
+
+        <Button
+            android:id="@+id/continueBtn"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="wrap_content"
+            android:text="Continue" />
+
     </LinearLayout>
 
     <Button
